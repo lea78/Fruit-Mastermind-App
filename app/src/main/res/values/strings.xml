@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Fruit MasterMind</string>
+    <string name="welcome_to_the_game">Welcome to the game !</string>
+    <string name="start">Start</string>
+    <string name="scores">Scores</string>
+    <string name="quit">Quit</string>
 </resources>
