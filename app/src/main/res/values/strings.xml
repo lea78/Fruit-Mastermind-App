@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Fruit MasterMind</string>
+    <string name="score">Score :</string>
+    <string name="editScore">0</string>
+    <string name="attempts_left">Attempts left :</string>
+    <string name="home_text">Home</string>
+    <string name="text_clue1">clue1</string>
+    <string name="clue2">Clue2</string>
 </resources>
