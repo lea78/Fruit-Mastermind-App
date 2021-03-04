@@ -1,12 +1,14 @@
 package com.example.fruitmastermind;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
 
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
 import android.widget.Toolbar;
 
 
@@ -36,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
-
 
 
 }
