@@ -13,6 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:id="@+id/f1"
+        android:drawableRight="@drawable/strawberry"
         android:textSize="8dp"
         android:text="coucou"/>
 
@@ -20,6 +22,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:id="@+id/f2"
+        android:drawableRight="@drawable/bananas"
         android:textSize="8dp"
         android:text="coucou"/>
 
@@ -27,6 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:id="@+id/f3"
+        android:drawableRight="@drawable/raspberry"
         android:textSize="8dp"
         android:text="coucou"/>
 
@@ -34,6 +40,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:drawableRight="@drawable/kiwi"
+        android:id="@+id/f4"
         android:textSize="8dp"
         android:text="coucou"/>
 
@@ -49,6 +57,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:id="@+id/f5"
+            android:drawableRight="@drawable/orange"
             android:textSize="8dp"
             android:text="coucou"/>
 
@@ -56,6 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:id="@+id/f6"
+            android:drawableRight="@drawable/plum"
             android:textSize="8dp"
             android:text="coucou"/>
 
@@ -63,6 +75,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:id="@+id/f7"
+            android:drawableRight="@drawable/grapes"
             android:textSize="8dp"
             android:text="coucou"/>
 
@@ -70,6 +84,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:id="@+id/f8"
+            android:drawableRight="@drawable/lemon"
             android:textSize="8dp"
             android:text="coucou"/>
 

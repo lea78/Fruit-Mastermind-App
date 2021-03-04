@@ -17,6 +17,10 @@ public class FruitArray {
 
     Fruit[] baseFruitArray = {fraise,banane,framboise,kiwi,orange,prune,raisin,citron};
 
+    public Fruit getBaseFruitArray(int index) {
+        return baseFruitArray[index];
+    }
+
     Fruit[] newCombiBoard;
 
     public FruitArray() {
