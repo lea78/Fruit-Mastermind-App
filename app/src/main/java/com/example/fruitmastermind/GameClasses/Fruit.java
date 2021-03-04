@@ -5,12 +5,13 @@ public class Fruit {
     boolean seeds ;
     boolean peel;
     String name;
-    //add picture param
+    String img;
 
-    public Fruit(boolean seeds, boolean peel, String name) {
+    public Fruit(boolean seeds, boolean peel, String name, String img) {
         this.seeds = seeds;
         this.peel = peel;
         this.name = name;
+        this.img = img;
     }
 
     public boolean isSeeds() {
@@ -24,4 +25,6 @@ public class Fruit {
     public String getName() {
         return name;
     }
+
+    public String getImg() { return img; }
 }

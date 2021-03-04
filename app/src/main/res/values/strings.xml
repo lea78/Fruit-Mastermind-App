@@ -10,4 +10,12 @@
     <string name="home_text">Home</string>
     <string name="text_clue1">clue1</string>
     <string name="clue2">Clue2</string>
+    <string name="clue2Indice1">indice1</string>
+    <string name="clue2Indice2">indice2</string>
+    <string name="clue2Indice3">indice3</string>
+    <string name="clue2Indice4">indice4</string>
+    <string name="clue1Indice1">indice1</string>
+    <string name="clue1Indice2">indice2</string>
+    <string name="clue1Indice3">indice3</string>
+    <string name="clue1Indice4">indice4</string>
 </resources>
