@@ -5,8 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.widget.Toolbar;
+
+
 import com.example.fruitmastermind.GameClasses.Fruit;
 import com.example.fruitmastermind.GameClasses.FruitArray;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,4 +28,15 @@ public class MainActivity extends AppCompatActivity {
             Log.v("fruit name",myCombo[i].getName());
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.header, menu);
+
+        return true;
+    }
+
+
+
 }
