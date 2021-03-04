@@ -11,7 +11,6 @@ public class UserArray {
         this.b = b;
         this.c = c;
         this.d = d;
-        Fruit newArray[] = {a,b,c,d};
-        return newArray;
+        return new Fruit[]{a,b,c,d};
     }
 }
