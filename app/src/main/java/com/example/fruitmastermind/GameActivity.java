@@ -1,8 +1,11 @@
 package com.example.fruitmastermind;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +27,8 @@ import java.util.Arrays;
 public class GameActivity extends AppCompatActivity {
 
     FruitArray gBoard = new FruitArray();
+    TextView decountTries;
+    int count = 10;
 
 
     @Override
@@ -78,6 +83,21 @@ public class GameActivity extends AppCompatActivity {
                 keyboardFruits();
             }
         });
+
+
+        Button validate = (Button)findViewById(R.id.buttonValidate);
+        validate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(count > 0) {
+                    decountTries = (TextView) findViewById(R.id.attemptsLeft);
+                    count--;
+                    decountTries.setText(String.valueOf(count));
+                } else {
+                    looser();
+                }
+            }
+        });
     }
 
     @Override
@@ -95,4 +115,33 @@ public class GameActivity extends AppCompatActivity {
         MyDialog.show();
     }
 
+    private void goToMainMenu(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void looser(){
+        // setup the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("You're a looser");
+        builder.setMessage("But that's ok. It's just a game, you know...");        // add the buttons
+        builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+                startActivity(getIntent());
+            }
+        });
+        builder.setNegativeButton("Menu", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                goToMainMenu();
+
+            }
+        });        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 }
+
+
