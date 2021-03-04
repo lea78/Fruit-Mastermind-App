@@ -40,9 +40,13 @@ public class FruitArray {
     Fruit[] newCombiBoard;
 
 
+
     public FruitArray() {
     }
 
+    public Fruit[] getBaseFruitArray() {
+        return baseFruitArray;
+    }
 
     public Fruit[] generateFruitBoard(){
         newCombiBoard = new Fruit[4];

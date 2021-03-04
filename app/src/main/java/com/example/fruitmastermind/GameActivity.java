@@ -1,6 +1,7 @@
 package com.example.fruitmastermind;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
@@ -14,6 +15,8 @@ import android.widget.LinearLayout;
 
 import com.example.fruitmastermind.GameClasses.Fruit;
 import com.example.fruitmastermind.GameClasses.FruitArray;
+import com.example.fruitmastermind.GameClasses.RecyclerAdapter;
+import com.example.fruitmastermind.GameClasses.UserArray;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -21,6 +24,14 @@ public class GameActivity extends AppCompatActivity {
 
 
     //@SuppressLint("WrongViewCast")
+    int imagesTries[];
+    RecyclerView listTries;
+    Fruit fruit1 = gBoard.getBaseFruitArray()[0];
+    Fruit fruit2 = gBoard.getBaseFruitArray()[1];
+    Fruit fruit3 = gBoard.getBaseFruitArray()[2];
+    Fruit fruit4 =gBoard.getBaseFruitArray()[3];
+
+    Fruit arrayTestFruit [] = {fruit1, fruit2, fruit3, fruit4};
 
 
 
@@ -53,6 +64,13 @@ public class GameActivity extends AppCompatActivity {
             fruitImage[i].setImageDrawable(res);
             //fruitImage[i].setImageResource(R.drawable.bananas);
         }
+
+        // RECYCLER VIEW
+        listTries = findViewById(R.id.listOfTries);
+        String test1 = "Fruitivore";
+        RecyclerAdapter myAdapter = new RecyclerAdapter(this, arrayTestFruit);
+        listTries.setAdapter(myAdapter);
+        myAdapter.notifyDataSetChanged();
 
 
     }

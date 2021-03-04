@@ -41,6 +41,7 @@
             android:text="@string/home_text"/>
     </LinearLayout>
 
+    <!--RECYCLER VIEW-->
     <LinearLayout
         android:id="@+id/layout_listOfTries"
         android:layout_width="match_parent"
@@ -49,7 +50,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listOfTries"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
