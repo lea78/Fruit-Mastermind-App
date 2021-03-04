@@ -113,33 +113,37 @@
             android:background="@drawable/border">
 
             <TextView
+                android:id="@+id/clue1Indice1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_column="0"
                 android:gravity="center"
                 android:background="@drawable/border"
-                android:text="coucou"/>
+                android:text="@string/clue1Indice1"/>
 
             <TextView
+                android:id="@+id/clue1Indice2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:layout_column="1"
                 android:background="@drawable/border"
-                android:text="coucou"/>
+                android:text="@string/clue1Indice2"/>
             <TextView
+                android:id="@+id/clue1Indice3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:layout_column="2"
                 android:background="@drawable/border"
-                android:text="coucou"/>
+                android:text="@string/clue1Indice3"/>
             <TextView
+                android:id="@+id/clue1Indice4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:layout_column="3"
-                android:text="coucou"/>
+                android:text="@string/clue1Indice4"/>
         </TableRow>
     </TableLayout>
 
@@ -158,33 +162,38 @@
             android:background="@drawable/border">
 
             <TextView
+                android:id="@+id/clue2Indice1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_column="0"
                 android:gravity="center"
                 android:background="@drawable/border"
-                android:text="coucou"/>
+                android:text="@string/clue2Indice1"/>
 
             <TextView
+                android:id="@+id/clue2Indice2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:layout_column="1"
                 android:background="@drawable/border"
-                android:text="coucou"/>
+                android:text="@string/clue2Indice2"/>
+
             <TextView
+                android:id="@+id/clue2Indice3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:layout_column="2"
                 android:background="@drawable/border"
-                android:text="coucou"/>
+                android:text="@string/clue2Indice3"/>
             <TextView
+                android:id="@+id/clue2Indice4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:layout_column="3"
-                android:text="coucou"/>
+                android:text="@string/clue2Indice4"/>
         </TableRow>
     </TableLayout>
 
