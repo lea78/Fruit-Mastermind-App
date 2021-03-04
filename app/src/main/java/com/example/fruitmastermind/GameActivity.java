@@ -63,10 +63,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
-
-
-
+    
     public void goHome (View view){
 
         Intent intent = new Intent(this, MainActivity.class);
