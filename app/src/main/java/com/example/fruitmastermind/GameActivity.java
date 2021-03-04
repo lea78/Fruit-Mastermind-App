@@ -1,6 +1,7 @@
 package com.example.fruitmastermind;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
@@ -67,9 +68,14 @@ public class GameActivity extends AppCompatActivity {
 
         // RECYCLER VIEW
         listTries = findViewById(R.id.listOfTries);
-        String test1 = "Fruitivore";
         RecyclerAdapter myAdapter = new RecyclerAdapter(this, arrayTestFruit);
+        String adaptExist ="non";
+        if(myAdapter != null){
+            adaptExist = "yes";
+        }
+        Log.v("show", adaptExist);
         listTries.setAdapter(myAdapter);
+        listTries.setLayoutManager(new LinearLayoutManager(this));
         myAdapter.notifyDataSetChanged();
 
 

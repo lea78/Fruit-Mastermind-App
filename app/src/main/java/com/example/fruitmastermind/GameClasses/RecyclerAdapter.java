@@ -19,7 +19,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyRecy
     Context recyclerContext;
     UserArray imagesFruit[];
     Array imagesPositions[];
-    Fruit test [];
+    Fruit[] test ;
 
      //CONSTRUCTORS
     public RecyclerAdapter(Context myRecyclerContext, UserArray myImagesFruit[], Array myImagesPositions[]){
@@ -37,13 +37,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyRecy
     @Override
     public MyRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(recyclerContext);
-        View viewInflater = inflater.inflate(R.layout.item_list_of_tries, parent, false);
+        View viewInflater = inflater.inflate(R.layout.item_list_of_tries, parent, true);
         return new MyRecyclerViewHolder(viewInflater);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyRecyclerViewHolder holder, int position) {
-        String item1 = test[0].getImg();
+        //bouton validate
+
+
 
     }
 

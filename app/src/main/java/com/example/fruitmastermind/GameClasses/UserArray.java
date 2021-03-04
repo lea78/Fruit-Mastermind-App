@@ -1,6 +1,6 @@
 package com.example.fruitmastermind.GameClasses;
 
-public class UserArray {
+public class UserArray  {
     Fruit a;
     Fruit b;
     Fruit c;
