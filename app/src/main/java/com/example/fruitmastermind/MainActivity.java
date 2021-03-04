@@ -3,7 +3,9 @@ package com.example.fruitmastermind;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+
 import android.util.Log;
 
 import android.view.Menu;
@@ -14,7 +16,6 @@ import android.widget.Toolbar;
 
 import com.example.fruitmastermind.GameClasses.Fruit;
 import com.example.fruitmastermind.GameClasses.FruitArray;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +32,23 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    // Start GameActivity
+
+    public void startGame (View view){
+
+        Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
+    }
+
+    // Quit Game
+
+    public void quitGame (View view){
+
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();

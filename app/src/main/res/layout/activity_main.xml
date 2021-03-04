@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fruit_background"
     tools:context=".MainActivity">
 
 
     <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:background="#03A9F4"
+            android:gravity="center_horizontal|center_vertical"
+            android:padding="10dp"
+            android:text="@string/welcome_to_the_game"
+            android:textColor="#111111"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--
         android:id="@+id/layout_topMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -172,10 +198,59 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="fruit4"/>
+            -->
+
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/button_zone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title"
+        android:gravity="center|center_horizontal"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+        <Button
+            android:id="@+id/start_button"
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:onClick="startGame"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/start"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#03A9F4" />
+
+        <Button
+            android:id="@+id/scores_button"
+            android:layout_width="166dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/scores"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#03A9F4" />
+
+        <Button
+            android:id="@+id/quit_button"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:onClick="quitGame"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/quit"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:backgroundTint="#03A9F4" />
+=======
+      <!--
         android:id="@+id/layout_submitReset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -193,6 +268,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Reset"/>
+-->
 
     </LinearLayout>
 
