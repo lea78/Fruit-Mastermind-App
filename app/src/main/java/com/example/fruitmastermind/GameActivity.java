@@ -2,12 +2,14 @@ package com.example.fruitmastermind;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -87,7 +89,10 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void keyboardFruits(){
-        
+        final Dialog MyDialog = new Dialog(GameActivity.this);
+        MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        MyDialog.setContentView(R.layout.choose_of_fruits);
+        MyDialog.show();
     }
 
 }
