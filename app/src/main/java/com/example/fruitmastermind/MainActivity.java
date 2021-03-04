@@ -5,7 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import java.util.Random;
+import com.example.fruitmastermind.GameClasses.Fruit;
+import com.example.fruitmastermind.GameClasses.FruitArray;
 
 public class MainActivity extends AppCompatActivity {
 

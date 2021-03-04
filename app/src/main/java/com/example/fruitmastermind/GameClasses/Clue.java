@@ -1,4 +1,4 @@
-package com.example.fruitmastermind;
+package com.example.fruitmastermind.GameClasses;
 
 public enum Clue {
     PERFECT("Perfect"),

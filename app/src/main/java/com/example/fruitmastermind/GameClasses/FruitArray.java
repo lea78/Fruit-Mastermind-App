@@ -1,6 +1,4 @@
-package com.example.fruitmastermind;
-
-import android.util.Log;
+package com.example.fruitmastermind.GameClasses;
 
 import java.util.Random;
 
@@ -24,7 +22,7 @@ public class FruitArray {
     }
 
 
-    Fruit[] generateFruitBoard(){
+    public Fruit[] generateFruitBoard(){
         newCombiBoard = new Fruit[4];
         for (int i = 0; i < newCombiBoard.length; i++){
             Random r = new Random();
