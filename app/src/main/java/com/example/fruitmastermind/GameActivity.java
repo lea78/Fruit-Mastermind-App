@@ -1,9 +1,11 @@
 package com.example.fruitmastermind;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -24,10 +26,10 @@ import com.example.fruitmastermind.GameClasses.UserArray;
 
 import java.util.Arrays;
 
-public class GameActivity extends AppCompatActivity {
 
-    FruitArray gBoard = new FruitArray();
 public class GameActivity extends AppCompatActivity implements View.OnClickListener{
+    TextView decountTries;
+    int count = 10;
 
     FruitArray gBoard = new FruitArray();
     Button b1;
@@ -68,8 +70,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         b4 = (Button) findViewById(R.id.Fruit4);
         b4.setOnClickListener(this);
 
-        Fruit[] myCombo = gBoard.generateFruitBoard();
-
 
         for (int i = 0; i < myCombo.length; i++){
             int imageResource = getResources().getIdentifier(myCombo[i].getImg(), null, getPackageName());
@@ -96,6 +96,21 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 keyboardFruits();
+            }
+        });
+
+
+        Button validate = (Button)findViewById(R.id.buttonValidate);
+        validate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(count > 0) {
+                    decountTries = (TextView) findViewById(R.id.attemptsLeft);
+                    count--;
+                    decountTries.setText(String.valueOf(count));
+                } else {
+                    looser();
+                }
             }
         });
     }
@@ -139,4 +154,34 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
+    private void goToMainMenu(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void looser(){
+        // setup the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("You're a looser");
+        builder.setMessage("But that's ok. It's just a game, you know...");        // add the buttons
+        builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+                startActivity(getIntent());
+            }
+        });
+        builder.setNegativeButton("Menu", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                goToMainMenu();
+
+            }
+        });        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 }
+
+
