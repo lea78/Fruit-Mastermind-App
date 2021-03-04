@@ -3,7 +3,6 @@ package com.example.fruitmastermind;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.annotation.SuppressLint;
 
@@ -37,18 +36,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     FruitArray gBoard = new FruitArray();
 
-
-
     Fruit[] userChoice = new Fruit[4];
 
-
-
-
     Fruit[] myCombo = gBoard.generateFruitBoard();
-
-    Button p1;
-
-
 
     public Button[] bArray = new Button[4];
 
@@ -72,25 +62,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         bArray[1] = b2;
         bArray[2] = b3;
         bArray[3] = b4;
-
-
-        Button p2 = (Button) findViewById(R.id.f2);
-        Button p3 = (Button) findViewById(R.id.f3);
-        Button p4 = (Button) findViewById(R.id.f4);
-        Button p5 = (Button) findViewById(R.id.f5);
-        Button p6 = (Button) findViewById(R.id.f6);
-        Button p7 = (Button) findViewById(R.id.f7);
-        Button p8 = (Button) findViewById(R.id.f8);
-
-        /*p2.setOnClickListener(this);
-        p3.setOnClickListener(this);
-        p4.setOnClickListener(this);
-        p5.setOnClickListener(this);
-        p6.setOnClickListener(this);
-        p7.setOnClickListener(this);
-        p8.setOnClickListener(this);*/
-
-
 
         LinearLayout resultsRoot = (LinearLayout) findViewById(R.id.layout_finalResult);
         ImageView fruit1 = resultsRoot.findViewById(R.id.imgFruit1);
@@ -171,43 +142,20 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void keyboardFruits(){
-        //final AlertDialog MyDialog = new AlertDialog(GameActivity.this);
-        //AlertDialog MyDialog = new AlertDialog(GameActivity.this);
         AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
-        LayoutInflater inflater = getLayoutInflater();
-        //builder.setView(inflater.inflate(R.layout.choose_of_fruits, null));
         builder.setTitle("Pick a fruit");
         builder.setItems(R.array.fruitArray, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        // The 'which' argument contains the index position
-                        // of the selected item
                         enterInUserSub(which,arrIndex);
                     }
                 });
 
         AlertDialog alert1 = builder.create();
         alert1.show();
-        //alert1.setContentView(R.layout.choose_of_fruits);
-        //alert1.setButton();
-        //alert1.show();
-
-        /*MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        MyDialog.setContentView(R.layout.choose_of_fruits);
-        MyDialog.show();
-        public void onClick(MyDialog, p1){
-
-        }
-
-        //p1.setOnClickListener(this);*/
-
 
 
 
     }
-
-
-    //AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
 
 
     public void enterInUserSub(int inputFruit, int input){
@@ -238,30 +186,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 keyboardFruits();
                 arrIndex = 3;
                 break;
-            /*case R.id.f1:
-                enterInUserSub(0,arrIndex);
-                break;
-            case R.id.f2:
-                enterInUserSub(1,arrIndex);
-                break;
-            case R.id.f3:
-                enterInUserSub(2,arrIndex);
-                break;
-            case R.id.f4:
-                enterInUserSub(3,arrIndex);
-                break;
-            case R.id.f5:
-                enterInUserSub(4,arrIndex);
-                break;
-            case R.id.f6:
-                enterInUserSub(5,arrIndex);
-                break;
-            case R.id.f7:
-                enterInUserSub(6,arrIndex);
-                break;
-            case R.id.f8:
-                enterInUserSub(7,arrIndex);
-                break;*/
         }
     }
 
@@ -273,7 +197,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public void looser(){
         // setup the alert builder
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("You're a looser");
+        builder.setTitle("You're a loser");
         builder.setMessage("But that's ok. It's just a game, you know...");        // add the buttons
         builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
             @Override
