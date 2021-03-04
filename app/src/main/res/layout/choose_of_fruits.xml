@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ligne1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/f1"
+        android:drawableRight="@drawable/strawberry"
+        android:textSize="8dp"
+        android:text="coucou"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/f2"
+        android:drawableRight="@drawable/bananas"
+        android:textSize="8dp"
+        android:text="coucou"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/f3"
+        android:drawableRight="@drawable/raspberry"
+        android:textSize="8dp"
+        android:text="coucou"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableRight="@drawable/kiwi"
+        android:id="@+id/f4"
+        android:textSize="8dp"
+        android:text="coucou"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ligne2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/ligne1">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/f5"
+            android:drawableRight="@drawable/orange"
+            android:textSize="8dp"
+            android:text="coucou"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/f6"
+            android:drawableRight="@drawable/plum"
+            android:textSize="8dp"
+            android:text="coucou"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/f7"
+            android:drawableRight="@drawable/grapes"
+            android:textSize="8dp"
+            android:text="coucou"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/f8"
+            android:drawableRight="@drawable/lemon"
+            android:textSize="8dp"
+            android:text="coucou"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
