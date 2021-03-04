@@ -23,9 +23,13 @@ public class FruitArray {
 
     Fruit[] newCombiBoard;
 
+
     public FruitArray() {
     }
 
+    public Fruit[] getBaseFruitArray() {
+        return baseFruitArray;
+    }
     public Fruit[] generateFruitBoard(){
         newCombiBoard = new Fruit[4];
         for (int i = 0; i < newCombiBoard.length; i++){
