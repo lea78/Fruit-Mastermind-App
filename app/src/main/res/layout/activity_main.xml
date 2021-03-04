@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <LinearLayout
         android:id="@+id/layout_topMenu"
         android:layout_width="match_parent"
@@ -33,24 +34,7 @@
             android:layout_height="wrap_content"
             android:text="5"/>
 
-    <LinearLayout
-        android:id="@+id/layout_clueButtons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/buttonClue1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/text_clue1"/>
-        <Button
-            android:id="@+id/buttonClue2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/clue2"/>
-
-    </LinearLayout>
 
         <Button
             android:id="@+id/homeMenu"
