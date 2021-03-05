@@ -23,8 +23,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import com.example.fruitmastermind.GameClasses.Clue;
 import com.example.fruitmastermind.GameClasses.Fruit;
 import com.example.fruitmastermind.GameClasses.FruitArray;
+import com.example.fruitmastermind.GameClasses.ResultClues;
 import com.example.fruitmastermind.GameClasses.UserArray;
 
 import java.io.BufferedReader;
@@ -101,6 +103,38 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
+        Button validate = (Button)findViewById(R.id.buttonValidate);
+        validate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(count > 0) {
+                    ResultClues rC = new ResultClues();
+                    Log.v("message","step 1");
+                    Clue[] resultArray = rC.checkUserAnswer(myCombo,userChoice);
+                    Log.v("message","step 2");
+                    Log.v("message","step 3");
+                    Log.v("checkcheck", resultArray[0].clueValue);
+                    boolean checkwin = true;
+                    for (int i=0; i < resultArray.length; i++){
+                        Log.v("message","step 4");
+                        if (resultArray[i] != Clue.PERFECT){
+                            Log.v("message","step 5");
+                            checkwin = false;
+                        }
+                    }
+                    if(checkwin){
+                        loser("You win !","Although it's not a very difficult game you know...");
+                    }
+                        else{
+                        decountTries = (TextView) findViewById(R.id.attemptsLeft);
+                        count--;
+                        decountTries.setText(String.valueOf(count));}
+                } else {
+                    loser("You're a loser","But that's ok. It's just a game, you know...");
+                }
+            }
+        });
+
         /*Button showFruits = (Button)findViewById(R.id.Fruit1);
         showFruits.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,6 +197,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         Drawable res = getResources().getDrawable(imageResource);
         bArray[input].setBackgroundDrawable(res);
         bArray[input].setText("");
+        userChoice[input] = gBoard.getBaseFruitArray(inputFruit);
     }
 
     int arrIndex;
@@ -194,11 +229,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
     }
 
-    public void looser(){
+    public void loser(String a, String b){
         // setup the alert builder
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("You're a loser");
-        builder.setMessage("But that's ok. It's just a game, you know...");        // add the buttons
+        builder.setTitle(a);
+        builder.setMessage(b);        // add the buttons
         builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -206,6 +241,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(getIntent());
             }
         });
+
+
         builder.setNegativeButton("Menu", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

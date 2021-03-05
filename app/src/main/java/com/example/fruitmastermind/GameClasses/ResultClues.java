@@ -5,9 +5,9 @@ import java.util.List;
 
 public class ResultClues {
 
-    Clue compiledResult[];
+    Clue[] compiledResult;
 
-    public List<Clue> checkUserAnswer(Fruit[] gameArray, Fruit[] userArray){
+    public Clue[] checkUserAnswer(Fruit[] gameArray, Fruit[] userArray){
 
         List<Clue> compiledResult = new ArrayList<Clue>();
         Fruit gArr[] = gameArray;
@@ -36,8 +36,9 @@ public class ResultClues {
             Clue resClue = Clue.WRONG;
             compiledResult.add(resClue);
         }
-
-        return compiledResult;
+        Clue[] compiledArr = new Clue[4];
+        compiledArr = compiledResult.toArray(compiledArr);
+        return compiledArr;
     }
 
     public Clue[] getCompiledResult() {
