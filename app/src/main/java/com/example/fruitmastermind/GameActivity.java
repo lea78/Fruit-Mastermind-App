@@ -177,6 +177,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 } else {
                     loser("You're a loser","But that's ok. It's just a game, you know...");
                 }
+
             }
         });
 
