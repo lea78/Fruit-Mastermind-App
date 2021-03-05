@@ -178,6 +178,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     loser("You're a loser","But that's ok. It's just a game, you know...");
                 }
 
+                resetChoiceButton();
+
             }
         });
 
@@ -185,16 +187,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageButton btn1 = findViewById(R.id.Fruit1);
-                btn1.setImageResource(R.drawable.question_color);
-                ImageButton btn2 = findViewById(R.id.Fruit2);
-                btn2.setImageResource(R.drawable.question_color);
-                ImageButton btn3 = findViewById(R.id.Fruit3);
-                btn3.setImageResource(R.drawable.question_color);
-                ImageButton btn4 = findViewById(R.id.Fruit4);
-                btn4.setImageResource(R.drawable.question_color);
+                resetChoiceButton();
             }
         });
+
 
         //Recylcer the revenge
 
@@ -414,6 +410,17 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         TableLayout seedTable = findViewById(R.id.layout_clue1);
         seedTable.setVisibility(View.VISIBLE);
         count -= 3;
+    }
+
+    public void resetChoiceButton(){
+        ImageButton btn1 = findViewById(R.id.Fruit1);
+        btn1.setImageResource(R.drawable.question_color);
+        ImageButton btn2 = findViewById(R.id.Fruit2);
+        btn2.setImageResource(R.drawable.question_color);
+        ImageButton btn3 = findViewById(R.id.Fruit3);
+        btn3.setImageResource(R.drawable.question_color);
+        ImageButton btn4 = findViewById(R.id.Fruit4);
+        btn4.setImageResource(R.drawable.question_color);
     }
 }
 
