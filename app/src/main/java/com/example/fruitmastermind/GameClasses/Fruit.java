@@ -2,6 +2,8 @@ package com.example.fruitmastermind.GameClasses;
 
 public class Fruit {
 
+    //The parameters if the object fruit
+
     boolean seeds ;
     boolean peel;
     String name;

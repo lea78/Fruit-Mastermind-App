@@ -5,7 +5,11 @@ import java.util.List;
 
 public class ResultClues {
 
+    //Store the result in an abject array "Clue"
+
     Clue[] compiledResult;
+
+    //Method the verify the choice of the user and what the computer has chosen
 
     public Clue[] checkUserAnswer(Fruit[] gameArray, Fruit[] userArray){
 
@@ -14,6 +18,8 @@ public class ResultClues {
         Fruit uArr[] = userArray;
         boolean resultAdded = false;
 
+        //Check if the answers are exactly the same on the same index
+
         for (int i = 0; i < uArr.length; i++){
             if (uArr[i] == gArr[i]){
                 Clue resClue = Clue.PERFECT;
@@ -21,6 +27,9 @@ public class ResultClues {
                 resultAdded = true;
             }
         }
+
+        //Check if the answers are the same but not on the same index
+
         if (!resultAdded){
             for (int i = 0; i < uArr.length; i++){
                 for (int j = 0; j < gArr.length; j++){
@@ -32,6 +41,7 @@ public class ResultClues {
                 }
             }
         }
+
     for (int i = compiledResult.size(); i < uArr.length; i++){
         Clue resClue = Clue.WRONG;
         compiledResult.add(resClue);
