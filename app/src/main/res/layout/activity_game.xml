@@ -75,13 +75,14 @@
     </LinearLayout>
 
     <!--RECYCLER VIEW-->
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/notatest"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="350dp"
         android:orientation="horizontal"
         android:layout_marginBottom="10dp"
         android:layout_below="@+id/layout_topMenu"
+
         >
 
     <androidx.recyclerview.widget.RecyclerView
@@ -93,15 +94,14 @@
 
 
     </androidx.recyclerview.widget.RecyclerView>
-    </LinearLayout>
+    </RelativeLayout>
 
     <!-- Winning Response -->
     <LinearLayout
         android:id="@+id/layout_finalResult"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_listOfTries"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
@@ -142,11 +142,13 @@
     <!-- clues viewer -->
     <!-- Clue 1 -->
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/layout_playerChoice_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:layout_below="@+id/notatest"
+        android:layout_alignParentBottom="true"
         android:gravity="bottom"
         android:orientation="vertical">
 
@@ -321,6 +323,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginTop="10dp"
+            android:layout_below="@+id/layout_playerChoice"
             android:orientation="horizontal">
 
             <Button
@@ -344,6 +347,6 @@
                 android:text="Reset" />
 
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>
