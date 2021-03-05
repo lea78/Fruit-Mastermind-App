@@ -30,6 +30,9 @@ import com.example.fruitmastermind.GameClasses.Fruit;
 import com.example.fruitmastermind.GameClasses.FruitArray;
 import com.example.fruitmastermind.GameClasses.ResultClues;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GameActivity extends AppCompatActivity implements View.OnClickListener{
     TextView decountTries;
     int count = 10;
@@ -37,8 +40,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     FruitArray gBoard = new FruitArray();
 
     //@SuppressLint("WrongViewCast")
-    int imagesTries[];
-    ImageView[] paramForCycle;
+    List<Drawable[]> paramForCycle = new ArrayList<Drawable[]>();
     RecyclerView listTries;
     CustomAdapter myAdapter = new CustomAdapter(paramForCycle);
 
@@ -122,20 +124,32 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*for (int i = 0; i < 4; i++){
+                Log.v("message","step 1");
+                Drawable[] arrayToAdd = new Drawable[4];
+                Log.v("message","step 2");
+
+                for (int i = 0; i < 4; i++){
+                    Log.v("message","step 3");
+
                     int imageResource = getResources().getIdentifier(userChoice[i].getImg(), null, getPackageName());
                     Drawable res = getResources().getDrawable(imageResource);
-                    paramForCycle[i].setImageDrawable(res);
-                }*/
-                //myAdapter.notifyDataSetChanged();
+                    arrayToAdd[i]=res;
+                    Log.v("message","step 4");
+                    Log.v("tostring", res.toString());
+
+                }
+                Log.v("message","step 5");
+
+                paramForCycle.add(arrayToAdd);
+                Log.v("message","step 6");
+
+                myAdapter.notifyDataSetChanged();
                 if(count > 0) {
                     ResultClues rC = new ResultClues();
                     Clue[] resultArray = rC.checkUserAnswer(myCombo,userChoice);
                     boolean checkwin = true;
                     for (int i=0; i < resultArray.length; i++){
-                        Log.v("message","step 4");
                         if (resultArray[i] != Clue.PERFECT){
-                            Log.v("message","step 5");
                             checkwin = false;
                         }
                     }
@@ -187,7 +201,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
-        private ImageView[] localDataSet;
+        private final List<Drawable[]> localDataSet;
 
         /**
          * Provide a reference to the type of views that you are using
@@ -203,7 +217,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
             public ViewHolder(View view) {
                 super(view);
+
+                Log.v("in adapter", "step 6.5 I guess");
                 // Define click listener for the ViewHolder's View
+                // this isn't called
+                // what do
 
                 imgView1 = (ImageView) view.findViewById(R.id.imgRecyclerFruit1);
                 imgView2 = (ImageView) view.findViewById(R.id.imgRecyclerFruit2);
@@ -227,7 +245,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
          * @param dataSet String[] containing the data to populate views to be used
          * by RecyclerView.
          */
-        public CustomAdapter(ImageView[] dataSet) {
+        public CustomAdapter(List<Drawable[]> dataSet) {
             localDataSet = dataSet;
         }
 
@@ -250,9 +268,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             // contents of the view with that element
 
             for (int i = 0; i < 4; i++){
-                int imageResource = getResources().getIdentifier(userChoice[i].getImg(), null, getPackageName());
-                Drawable res = getResources().getDrawable(imageResource);
-                viewHolder.getImgView()[i].setImageDrawable(res);
+                Log.v("in adapter", "step 7");
+                viewHolder.getImgView()[i].setImageDrawable(paramForCycle.get(position)[i]);
             }
 
         }
@@ -260,7 +277,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         // Return the size of your dataset (invoked by the layout manager)
         @Override
         public int getItemCount() {
-            return localDataSet.length;
+            return localDataSet.size();
         }
     }
 
