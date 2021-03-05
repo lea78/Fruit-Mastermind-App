@@ -5,11 +5,13 @@
     <item android:id="@+id/clue1"
         android:icon="@drawable/ic_clues"
         android:title="Hint 1 : Peelable or not"
-        app:showAsAction="never"/>
+        app:showAsAction="never"
+        android:onClick="showPeelable"/>
 
     <item android:id="@+id/clue2"
         android:icon="@drawable/ic_clues"
         android:title="Hint 2 : Seeds or no seed"
-        app:showAsAction="never"/>
+        app:showAsAction="never"
+        android:onClick="showSeeds"/>
 
 </menu>
