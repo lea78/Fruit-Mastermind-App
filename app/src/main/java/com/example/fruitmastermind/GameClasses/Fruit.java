@@ -1,7 +1,5 @@
 package com.example.fruitmastermind.GameClasses;
 
-import android.media.Image;
-
 public class Fruit {
 
     boolean seeds ;
