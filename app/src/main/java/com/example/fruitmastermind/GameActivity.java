@@ -20,6 +20,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -54,7 +55,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     Fruit[] myCombo = gBoard.generateFruitBoard();
 
-    public Button[] bArray = new Button[4];
+    public ImageButton[] bArray = new ImageButton[4];
 
 
     @Override
@@ -62,10 +63,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        Button b1 = (Button) findViewById(R.id.Fruit1);
-        Button b2 = (Button) findViewById(R.id.Fruit2);
-        Button b3 = (Button) findViewById(R.id.Fruit3);
-        Button b4 = (Button) findViewById(R.id.Fruit4);
+        ImageButton b1 = (ImageButton) findViewById(R.id.Fruit1);
+        ImageButton b2 = (ImageButton) findViewById(R.id.Fruit2);
+        ImageButton b3 = (ImageButton) findViewById(R.id.Fruit3);
+        ImageButton b4 = (ImageButton) findViewById(R.id.Fruit4);
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
         b3.setOnClickListener(this);
@@ -218,8 +219,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public void enterInUserSub(int inputFruit, int input){
         int imageResource = getResources().getIdentifier(gBoard.getBaseFruitArray(inputFruit).getImg(), null, getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
-        bArray[input].setBackgroundDrawable(res);
-        bArray[input].setText("");
+        bArray[input].setImageDrawable(res);
+        //bArray[input].setText("");
         userChoice[input] = gBoard.getBaseFruitArray(inputFruit);
     }
 

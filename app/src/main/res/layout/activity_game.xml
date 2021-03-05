@@ -205,26 +205,30 @@
         android:layout_below="@+id/layout_clue2"
         android:orientation="horizontal">
 
-        <Button
+        <ImageButton
             android:id="@+id/Fruit1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fruit1"/>
-        <Button
+            android:src="@drawable/strawberry"
+            />
+        <ImageButton
             android:id="@+id/Fruit2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fruit2"/>
-        <Button
+            android:src="@drawable/bananas"
+            />
+        <ImageButton
             android:id="@+id/Fruit3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fruit3"/>
-        <Button
+            android:src="@drawable/raspberry"
+            />
+        <ImageButton
             android:id="@+id/Fruit4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fruit4"/>
+            android:src="@drawable/orange"
+            />
 
 
     </LinearLayout>
