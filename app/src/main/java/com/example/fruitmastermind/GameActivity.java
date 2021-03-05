@@ -34,12 +34,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener{
+
+    //Variables for the decount of tries
+
     TextView decountTries;
     int count = 10;
 
+    //Instantiate a new object of fruits which stores all the fruits
+
     FruitArray gBoard = new FruitArray();
 
-    //@SuppressLint("WrongViewCast")
+    //Instantiate an empty list for the recycler
+
     List<Drawable[]> paramForCycle = new ArrayList<Drawable[]>();
     RecyclerView listTries;
     CustomAdapter myAdapter = new CustomAdapter(paramForCycle);
@@ -50,7 +56,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     Fruit fruit4 =gBoard.getBaseFruitArray()[3];
 
     Fruit arrayTestFruit [] = {fruit1, fruit2, fruit3, fruit4};
+
+    //The user choice
+
     Fruit[] userChoice = new Fruit[4];
+
+    //The computer choice
 
     Fruit[] myCombo = gBoard.generateFruitBoard();
 
@@ -62,9 +73,14 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        //Instantiate a new list with the recycler
+
         listTries = new RecyclerView(GameActivity.this);
         listTries.setAdapter(myAdapter);
         listTries.setLayoutManager(new LinearLayoutManager(GameActivity.this));
+
+        //Store the choice of the user when he clicks
+
         ImageButton b1 = (ImageButton) findViewById(R.id.Fruit1);
         ImageButton b2 = (ImageButton) findViewById(R.id.Fruit2);
         ImageButton b3 = (ImageButton) findViewById(R.id.Fruit3);
@@ -74,11 +90,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         b3.setOnClickListener(this);
         b4.setOnClickListener(this);
 
-
         bArray[0] = b1;
         bArray[1] = b2;
         bArray[2] = b3;
         bArray[3] = b4;
+
+        /*The choice of the computer is applied with the corresponding images,
+        and clues (seeds or not, peelable or not) are generated and store in arrays*/
 
         LinearLayout resultsRoot = (LinearLayout) findViewById(R.id.layout_finalResult);
         ImageView fruit1 = resultsRoot.findViewById(R.id.imgFruit1);
@@ -99,9 +117,14 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
 
         for (int i = 0; i < myCombo.length; i++){
+
+            //The corresponding images are set
+
             int imageResource = getResources().getIdentifier(myCombo[i].getImg(), null, getPackageName());
             Drawable res = getResources().getDrawable(imageResource);
             fruitImage[i].setImageDrawable(res);
+
+            //The clues are set
 
             boolean seed = myCombo[i].isSeeds();
             if (seed){
@@ -118,33 +141,34 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-
+        /*All the used of the button "Validate" when onClick is activated*/
 
         Button validate = (Button)findViewById(R.id.buttonValidate);
         validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.v("message","step 1");
                 Drawable[] arrayToAdd = new Drawable[4];
-                Log.v("message","step 2");
 
                 for (int i = 0; i < 4; i++){
-                    Log.v("message","step 3");
+
+                    //Stotre the choice of the user and get the images corresponding
 
                     int imageResource = getResources().getIdentifier(userChoice[i].getImg(), null, getPackageName());
                     Drawable res = getResources().getDrawable(imageResource);
                     arrayToAdd[i]=res;
-                    Log.v("message","step 4");
-                    Log.v("tostring", res.toString());
 
                 }
-                Log.v("message","step 5");
 
                 paramForCycle.add(arrayToAdd);
-                Log.v("message","step 6");
 
                 myAdapter.notifyDataSetChanged();
+
+                //If the count of tries is up to 0 the player can still play
+
                 if(count > 0) {
+
+                    //Check the difference between the user choice and the computer choice
+
                     ResultClues rC = new ResultClues();
                     Clue[] resultArray = rC.checkUserAnswer(myCombo,userChoice);
                     boolean checkwin = true;
@@ -153,6 +177,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                             checkwin = false;
                         }
                     }
+
+                    //If the user choice and the computer choice are the same
+
                     if(checkwin){
                         loser("You win !","Although it's not a very difficult game you know...");
                     }
@@ -160,42 +187,22 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                             //add recycler
 
                             //ligne d'entrées user + cluemachin carré
+
+                        //Decount the number of tries when the user submits an answer
+
                         decountTries = (TextView) findViewById(R.id.attemptsLeft);
                         count--;
                         decountTries.setText(String.valueOf(count));}
                 } else {
+
+                    //If the number of tries is under 0
+
                     loser("You're a loser","But that's ok. It's just a game, you know...");
                 }
             }
         });
 
         //Recylcer the revenge
-
-
-
-        /*Button showFruits = (Button)findViewById(R.id.Fruit1);
-        showFruits.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                keyboardFruits();
-            }
-        });
-
-
-        Button validate = (Button)findViewById(R.id.buttonValidate);
-        validate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(count > 0) {
-                    decountTries = (TextView) findViewById(R.id.attemptsLeft);
-                    count--;
-                    decountTries.setText(String.valueOf(count));
-                } else {
-                    looser();
-                }
-            }
-        });
-        });*/
     }
 
 
@@ -218,7 +225,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             public ViewHolder(View view) {
                 super(view);
 
-                Log.v("in adapter", "step 6.5 I guess");
+                //Log.v("in adapter", "step 6.5 I guess");
                 // Define click listener for the ViewHolder's View
                 // this isn't called
                 // what do
@@ -282,13 +289,14 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
+    //Method to go to the main menu
 
     public void goHome (View view){
-
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    //Method to customize the header menu
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -297,6 +305,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         return true;
     }
+
+
 
     public void keyboardFruits(){
         AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
@@ -310,8 +320,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         AlertDialog alert1 = builder.create();
         alert1.show();
 
-
-
     }
 
 
@@ -324,6 +332,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     int arrIndex;
+
+
 
     @Override
     public void onClick(View v) {
@@ -347,16 +357,23 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //Go to the menu
+
     private void goToMainMenu(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    //When the game is end
+
     public void loser(String a, String b){
         // setup the alert builder
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(a);
-        builder.setMessage(b);        // add the buttons
+        builder.setMessage(b);
+
+        // add the buttons
+        //restart a new game
         builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -365,23 +382,28 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-
+        //Go to the main menu
         builder.setNegativeButton("Menu", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 goToMainMenu();
 
             }
-        });        // create and show the alert dialog
+        });
+        // create and show the alert dialog
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
+    //Decount of 2 when the user show the clue
 
     public void showPeelable(MenuItem item) {
         TableLayout peelableTable = findViewById(R.id.layout_clue1);
         peelableTable.setVisibility(View.VISIBLE);
         count -= 2;
     }
+
+    //Decount of 3 when the user show the clue
 
     public void showSeeds(MenuItem item) {
         TableLayout seedTable = findViewById(R.id.layout_clue2);
