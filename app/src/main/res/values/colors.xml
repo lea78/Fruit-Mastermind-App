@@ -14,5 +14,6 @@
     <color name="blue_green">#008C70</color>
     <color name="plum">#290C5A</color>
     <color name="orange">#FD9B33</color>
+    <color name="transparency">#00FFFFFF</color>
 
 </resources>

@@ -30,6 +30,8 @@ import com.example.fruitmastermind.GameClasses.Fruit;
 import com.example.fruitmastermind.GameClasses.FruitArray;
 import com.example.fruitmastermind.GameClasses.ResultClues;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -222,10 +224,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         public class ViewHolder extends RecyclerView.ViewHolder {
 
             private final ImageView[] imgView = new ImageView[4];
+            private final LinearLayout posFruit = new LinearLayout(GameActivity.this);
             ImageView imgView1;
             ImageView imgView2;
             ImageView imgView3;
             ImageView imgView4;
+            public TextView T1;
+            public TextView T2;
+            public TextView T3;
+            public TextView T4;
 
             public ViewHolder(View view) {
                 super(view);
@@ -240,6 +247,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 imgView3 = (ImageView) view.findViewById(R.id.imgRecyclerFruit3);
                 imgView4 = (ImageView) view.findViewById(R.id.imgRecyclerFruit4);
 
+                T1 = (TextView) view.findViewById(R.id.firstPositionTextView);
+                T2 = (TextView) view.findViewById(R.id.secondPositionTextView);
+                T3 = (TextView) view.findViewById(R.id.thirdPositionTextView);
+                T4 = (TextView) view.findViewById(R.id.fourthPositionTextView);
+
                 imgView[0] = imgView1;
                 imgView[1] = imgView2;
                 imgView[2] = imgView3;
@@ -248,6 +260,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
             public ImageView[] getImgView() {
                 return imgView;
+            }
+
+
+            public LinearLayout getPosFruit(){
+                return  posFruit;
             }
         }
 
@@ -268,28 +285,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             View view = LayoutInflater.from(viewGroup.getContext())
                     .inflate(R.layout.item_list_of_tries, viewGroup, false);
 
-            TextView T1 = viewGroup.findViewById(R.id.firstPositionTextView);
-            TextView T2 = viewGroup.findViewById(R.id.secondPositionTextView);
-            TextView T3 = viewGroup.findViewById(R.id.thirdPositionTextView);
-            TextView T4 = viewGroup.findViewById(R.id.fourthPositionTextView);
-
-            TextView[] tView = new TextView[]{T1,T2,T3,T4};
-
-            for (int i = 0; i <tView.length; i++){
-                switch (userChoice[i].getName())
-                {
-                    case "Perfect":
-                        tView[i].setText("V");
-                        break;
-                    case "Good":
-                        tView[i].setText("O");
-                        break;
-                    case "Wrong":
-                        tView[i].setText("X");
-                        break;
-                }
-            }
-
             return new ViewHolder(view);
         }
 
@@ -300,6 +295,39 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
             // Get element from your dataset at this position and replace the
             // contents of the view with that element
+
+
+
+            TextView[] tView = new TextView[4];
+            tView[0] = viewHolder.T1;
+            tView[1] = viewHolder.T2;
+            tView[2] = viewHolder.T3;
+            tView[3] = viewHolder.T4;
+
+
+            ResultClues rC2 = new ResultClues();
+            Clue[] resultArray2 = rC2.checkUserAnswer(myCombo,userChoice);
+            //Log.v("test",resultArray2.toString());
+
+            for (int i = 0; i < resultArray2.length; i++){
+                Log.v("test","im inside");
+                Log.v("value", resultArray2[i].clueValue);
+                switch (resultArray2[i].clueValue)
+                {
+                    case "Perfect":
+                        tView[i].setText("V");
+                        Log.v("result","V");
+                        break;
+                    case "Good":
+                        tView[i].setText("O");
+                        Log.v("result","O");
+                        break;
+                    case "Wrong":
+                        tView[i].setText("X");
+                        Log.v("result","X");
+                        break;
+                }
+            }
 
             for (int i = 0; i < 4; i++){
                 Log.v("in adapter", "step 7");
