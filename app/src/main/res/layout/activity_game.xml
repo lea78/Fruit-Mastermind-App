@@ -65,14 +65,25 @@
     </LinearLayout>
 
     <!--RECYCLER VIEW-->
+    <LinearLayout
+        android:id="@+id/notatest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/layout_topMenu"
+        >
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/layout_listOfTries"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_topMenu">
+        >
+
 
 
     </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
 
     <!-- Winning Response -->
     <LinearLayout

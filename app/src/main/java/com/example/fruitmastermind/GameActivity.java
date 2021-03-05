@@ -41,6 +41,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     //@SuppressLint("WrongViewCast")
     List<Drawable[]> paramForCycle = new ArrayList<Drawable[]>();
+    int posVH = 0;
     RecyclerView listTries;
     CustomAdapter myAdapter = new CustomAdapter(paramForCycle);
 
@@ -62,9 +63,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        listTries = new RecyclerView(GameActivity.this);
+        listTries = findViewById(R.id.layout_listOfTries);
         listTries.setAdapter(myAdapter);
-        listTries.setLayoutManager(new LinearLayoutManager(GameActivity.this));
+        RecyclerView.LayoutManager myManager = new LinearLayoutManager(GameActivity.this);
+        listTries.setLayoutManager(myManager);
+
         ImageButton b1 = (ImageButton) findViewById(R.id.Fruit1);
         ImageButton b2 = (ImageButton) findViewById(R.id.Fruit2);
         ImageButton b3 = (ImageButton) findViewById(R.id.Fruit3);
@@ -123,7 +126,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         Button validate = (Button)findViewById(R.id.buttonValidate);
         validate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Log.v("message","step 1");
                 Drawable[] arrayToAdd = new Drawable[4];
                 Log.v("message","step 2");
@@ -141,9 +144,17 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 Log.v("message","step 5");
 
                 paramForCycle.add(arrayToAdd);
+                myAdapter.notifyDataSetChanged();
                 Log.v("message","step 6");
 
-                myAdapter.notifyDataSetChanged();
+
+                //CustomAdapter.ViewHolder vh =  myAdapter.onCreateViewHolder(GameActivity.this.listTries, R.id.layout_listOfTries);
+                //myAdapter.onBindViewHolder(vh,posVH);
+                posVH+=1;
+
+                //myManager.addView(vh.getImgView());
+
+
                 if(count > 0) {
                     ResultClues rC = new ResultClues();
                     Clue[] resultArray = rC.checkUserAnswer(myCombo,userChoice);
