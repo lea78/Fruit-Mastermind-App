@@ -101,7 +101,7 @@
         android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_listOfTries"
+        android:layout_below="@+id/notatest"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
