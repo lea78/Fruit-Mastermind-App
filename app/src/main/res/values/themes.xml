@@ -23,4 +23,14 @@
         <item name="android:layout_marginRight">15dp</item>
         <item name="android:layout_marginLeft">15dp</item>
     </style>
+    <style name="myStyleHome" parent="Theme.FruitMasterMind">
+        <item name="backgroundTint">@color/blue_green</item>
+        <item name="android:textAppearanceButton">@color/black</item>
+        <item name="fontFamily">@font/lato_regular</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
+    <style name="myStyleGame" parent="myStyleHome">
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>

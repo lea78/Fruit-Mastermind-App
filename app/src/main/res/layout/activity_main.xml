@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fruit_background"
+    android:background="@mipmap/iback"
+
+    android:scaleType="centerInside"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -19,22 +21,20 @@
             android:id="@+id/welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:background="#03A9F4"
+            android:layout_marginTop="150dp"
+            android:fontFamily="@font/orange_juice"
             android:gravity="center_horizontal|center_vertical"
-            android:padding="10dp"
             android:text="@string/welcome_to_the_game"
-            android:textColor="#111111"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:padding="10dp"
+            android:background="@color/blue_green"
+             />
 
     </LinearLayout>
 
     <LinearLayout
+
         android:id="@+id/button_zone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -45,6 +45,7 @@
 
 
         <Button
+            style="@style/myStyleHome"
             android:id="@+id/start_button"
             android:layout_width="163dp"
             android:layout_height="wrap_content"
@@ -53,11 +54,11 @@
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:text="@string/start"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            app:backgroundTint="#03A9F4" />
+
+             />
 
         <Button
+            style="@style/myStyleHome"
             android:id="@+id/scores_button"
             android:layout_width="166dp"
             android:layout_height="wrap_content"
@@ -65,11 +66,10 @@
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:text="@string/scores"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            app:backgroundTint="#03A9F4" />
+            />
 
         <Button
+            style="@style/myStyleHome"
             android:id="@+id/quit_button"
             android:layout_width="165dp"
             android:layout_height="wrap_content"
@@ -77,9 +77,7 @@
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:text="@string/quit"
-            android:textColor="#000000"
-            android:textSize="24sp"
-            app:backgroundTint="#03A9F4" />
+             />
 
     </LinearLayout>
 
