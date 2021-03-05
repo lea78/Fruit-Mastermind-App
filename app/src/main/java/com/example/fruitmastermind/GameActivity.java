@@ -17,12 +17,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 
@@ -276,6 +278,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         });        // create and show the alert dialog
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    public void showPeelable(MenuItem item) {
+        TableLayout peelableTable = findViewById(R.id.layout_clue1);
+        peelableTable.setVisibility(View.VISIBLE);
+        count -= 2;
+    }
+
+    public void showSeeds(MenuItem item) {
+        TableLayout seedTable = findViewById(R.id.layout_clue2);
+        seedTable.setVisibility(View.VISIBLE);
+        count -= 3;
     }
 }
 
