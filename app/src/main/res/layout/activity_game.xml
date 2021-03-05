@@ -5,40 +5,62 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
+    <!-- First Line -->
     <LinearLayout
         android:id="@+id/layout_topMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
 
+        <!-- Score -->
         <TextView
+            style="@style/myStyleGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/score"/>
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
+            android:text="@string/score"
+            />
 
         <EditText
+            style="@style/myStyleHome"
             android:id="@+id/resultScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/editScore"/>
 
+        <!-- Attempts left -->
         <TextView
+            style="@style/myStyleGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/attempts_left"/>
+            android:text="@string/attempts_left"
+            android:layout_marginLeft="10dp"/>
 
         <TextView
+            style="@style/myStyleHome"
             android:id="@+id/attemptsLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/green_dark"
             android:text="@string/_10"/>
 
 
+        <!-- Home -->
         <Button
+            style="@style/myStyleHome"
             android:id="@+id/homeMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="goHome"
+            android:layout_marginLeft="60dp"
+            android:textSize="20sp"
+            android:gravity="center"
             android:text="@string/home_text"/>
     </LinearLayout>
 
@@ -55,7 +77,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
-
+    <!-- Winning Response -->
     <LinearLayout
         android:id="@+id/layout_finalResult"
         android:visibility="visible"
@@ -99,6 +121,8 @@
 
     </LinearLayout>
 
+    <!-- clues viewer -->
+    <!-- Clue 1 -->
     <TableLayout
         android:id="@+id/layout_clue1"
         android:layout_width="match_parent"
@@ -149,6 +173,7 @@
         </TableRow>
     </TableLayout>
 
+    <!-- Clue 2 -->
     <TableLayout
         android:id="@+id/layout_clue2"
         android:layout_width="match_parent"
@@ -201,60 +226,85 @@
     </TableLayout>
 
     <LinearLayout
-        android:id="@+id/layout_playerChoice"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/layout_clue2"
+        android:gravity="bottom"
+        android:layout_marginBottom="20dp">
+        <LinearLayout
+            android:id="@+id/layout_playerChoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout_clue2"
+
+            android:orientation="horizontal"
+            android:background="@color/blue_green"
+            android:padding= "5dp">
+
+            <ImageButton
+                android:id="@+id/Fruit1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/question"
+                android:layout_weight="1"
+                />
+            <ImageButton
+                android:id="@+id/Fruit2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/question"
+                android:layout_weight="1"
+                />
+            <ImageButton
+                android:id="@+id/Fruit3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/question"
+                android:layout_weight="1"
+                />
+            <ImageButton
+                android:id="@+id/Fruit4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/question"
+                android:layout_weight="1"
+                />
+
+    </LinearLayout>
+
+
+
+        <LinearLayout
+        android:id="@+id/layout_submitReset"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_clue2"
+
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/Fruit1"
+        <Button
+            style="@style/myStyleHome"
+            android:id="@+id/buttonValidate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/strawberry"
-            />
-        <ImageButton
-            android:id="@+id/Fruit2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/bananas"
-            />
-        <ImageButton
-            android:id="@+id/Fruit3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/raspberry"
-            />
-        <ImageButton
-            android:id="@+id/Fruit4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/orange"
-            />
+            android:layout_margin="10dp"
+            android:layout_weight="1"
 
+            android:text="Validate"/>
 
+        <Button
+            style="@style/myStyleHome"
+            android:id="@+id/buttonReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="Reset"/>
+
+        </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-    android:id="@+id/layout_submitReset"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/layout_playerChoice"
-    android:orientation="horizontal">
-
-    <Button
-        android:id="@+id/buttonValidate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Validate"/>
-
-    <Button
-        android:id="@+id/buttonReset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reset"/>
-
-    </LinearLayout>
-
 
 </RelativeLayout>
