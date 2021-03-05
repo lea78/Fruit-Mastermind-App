@@ -7,14 +7,16 @@
     >
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
+        <!-- Images fruit -->
         <LinearLayout
+            android:id="@+id/RecyclerView"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:orientation="horizontal"
-            android:id="@+id/RecyclerView"
             >
 
             <ImageView
@@ -48,6 +50,68 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/strawberry"/>
 
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+        <!-- Position Fruit-->
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <LinearLayout
+            android:id="@+id/layout_positionFruit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/firstPositionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="V"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:layout_margin="2dp"/>
+                <TextView
+                    android:id="@+id/secondPositionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="V"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:layout_margin="2dp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/thirdPositionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="V"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:layout_margin="2dp"/>
+                <TextView
+                    android:id="@+id/fourthPositionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="V"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:layout_margin="2dp"/>
+            </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
