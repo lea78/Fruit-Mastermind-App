@@ -29,4 +29,5 @@ public class Fruit {
     }
 
     public String getImg() { return img; }
+
 }
