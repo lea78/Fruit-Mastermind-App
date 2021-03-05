@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -24,34 +27,35 @@
 
             <ImageView
                 android:id="@+id/imgRecyclerFruit1"
+                style="@style/marginImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
-                style="@style/marginImage"
-                android:src="@drawable/bananas"/>
+                android:src="@drawable/bananas" />
+
             <ImageView
                 android:id="@+id/imgRecyclerFruit2"
+                style="@style/marginImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
-                style="@style/marginImage"
-                android:src="@drawable/kiwi"/>
+                android:src="@drawable/kiwi" />
 
             <ImageView
                 android:id="@+id/imgRecyclerFruit3"
+                style="@style/marginImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/marginImage"
                 android:scaleType="fitXY"
-                android:src="@drawable/plum"/>
+                android:src="@drawable/plum" />
 
             <ImageView
                 android:id="@+id/imgRecyclerFruit4"
+                style="@style/marginImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/marginImage"
                 android:scaleType="fitXY"
-                android:src="@drawable/strawberry"/>
+                android:src="@drawable/strawberry" />
 
         </LinearLayout>
 
