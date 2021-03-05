@@ -183,6 +183,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        //Reset the image when click on reset button
+
         Button reset = (Button)findViewById(R.id.buttonReset);
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -411,6 +413,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         seedTable.setVisibility(View.VISIBLE);
         count -= 3;
     }
+
+    //Set question mark on button images
 
     public void resetChoiceButton(){
         ImageButton btn1 = findViewById(R.id.Fruit1);
