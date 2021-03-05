@@ -306,7 +306,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
-
+    //All the fruits the user can choose to put it in the emplacement
 
     public void keyboardFruits(){
         AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
@@ -333,7 +333,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     int arrIndex;
 
-
+    //The emplacement to pick the user choice
 
     @Override
     public void onClick(View v) {
