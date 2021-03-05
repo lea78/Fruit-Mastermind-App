@@ -3,7 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameActivity">
+    tools:context=".GameActivity"
+    >
+
+    <ImageView
+        style="@style/backgroundImageGame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        tools:ignore="ContentDescription" />
 
     <!-- First Line -->
     <LinearLayout
@@ -134,27 +144,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:stretchColumns="0,1,2,3"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_marginBottom="5dp">
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
-                android:layout_weight="1"
+                android:gravity="center"
                 android:background="@drawable/border">
 
                 <TextView
+                    style="@style/StyleClue"
                     android:id="@+id/clue1Indice1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_column="0"
                     android:background="@drawable/border"
                     android:gravity="center"
-
                     android:text="@string/clue1Indice1" />
 
                 <TextView
+                    style="@style/StyleClue"
                     android:id="@+id/clue1Indice2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -164,6 +175,7 @@
                     android:text="@string/clue1Indice2" />
 
                 <TextView
+                    style="@style/StyleClue"
                     android:id="@+id/clue1Indice3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -173,10 +185,12 @@
                     android:text="@string/clue1Indice3" />
 
                 <TextView
+                    style="@style/StyleClue"
                     android:id="@+id/clue1Indice4"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="3"
+                    android:background="@drawable/border"
                     android:gravity="center"
                     android:text="@string/clue1Indice4" />
             </TableRow>
@@ -189,7 +203,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/layout_clue1"
             android:stretchColumns="0,1,2,3"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_marginBottom="10dp">
 
             <TableRow
@@ -197,10 +211,11 @@
                 android:layout_height="0dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
-
+                android:gravity="center"
                 android:background="@drawable/border">
 
                 <TextView
+                    style="@style/StyleClue"
                     android:id="@+id/clue2Indice1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -210,6 +225,7 @@
                     android:text="@string/clue2Indice1" />
 
                 <TextView
+                    style="@style/StyleClue"
                     android:id="@+id/clue2Indice2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -219,6 +235,7 @@
                     android:text="@string/clue2Indice2" />
 
                 <TextView
+                    style="@style/StyleClue"
                     android:id="@+id/clue2Indice3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -228,10 +245,12 @@
                     android:text="@string/clue2Indice3" />
 
                 <TextView
+                    style="@style/StyleClue"
                     android:id="@+id/clue2Indice4"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_column="3"
+                    android:background="@drawable/border"
                     android:gravity="center"
                     android:text="@string/clue2Indice4" />
             </TableRow>
@@ -245,7 +264,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/layout_clue2"
-            android:background="@color/blue_green"
+            android:background="@drawable/broder_layout"
             android:orientation="horizontal"
             android:padding="5dp">
 
@@ -254,28 +273,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/question" />
+                android:backgroundTint="@color/white"
+                android:src="@drawable/question_color" />
 
             <ImageButton
                 android:id="@+id/Fruit2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/question" />
+                android:backgroundTint="@color/white"
+                android:src="@drawable/question_color" />
 
             <ImageButton
                 android:id="@+id/Fruit3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/question" />
+                android:backgroundTint="@color/white"
+                android:src="@drawable/question_color" />
 
             <ImageButton
                 android:id="@+id/Fruit4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/question" />
+                android:backgroundTint="@color/white"
+                android:src="@drawable/question_color" />
 
         </LinearLayout>
 
@@ -284,7 +307,6 @@
             android:id="@+id/layout_submitReset"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginTop="10dp"
@@ -297,7 +319,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-
+                android:backgroundTint="@color/green_light"
                 android:text="Validate" />
 
             <Button
@@ -307,6 +329,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/green_light"
                 android:text="Reset" />
 
         </LinearLayout>

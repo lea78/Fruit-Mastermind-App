@@ -9,9 +9,10 @@
     <color name="background_blue">#03A9F4</color>
     
     <!-- COLOR FRUITMIND-->
-    <color name="green_light">#B7FF63</color>
+    <color name="green_light">#65AD75</color>
     <color name="green_dark">#224E24</color>
     <color name="blue_green">#008C70</color>
-    <color name="plume">#290C5A</color>
+    <color name="plum">#290C5A</color>
+    <color name="orange">#FD9B33</color>
 
 </resources>
