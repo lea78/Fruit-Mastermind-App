@@ -42,12 +42,12 @@ public class ResultClues {
             }
         }
 
-        //Check if the answers are not the same att all
+    for (int i = compiledResult.size(); i < uArr.length; i++){
+        Clue resClue = Clue.WRONG;
+        compiledResult.add(resClue);
+    }
 
-        if (!resultAdded){
-            Clue resClue = Clue.WRONG;
-            compiledResult.add(resClue);
-        }
+
         Clue[] compiledArr = new Clue[4];
         compiledArr = compiledResult.toArray(compiledArr);
         return compiledArr;

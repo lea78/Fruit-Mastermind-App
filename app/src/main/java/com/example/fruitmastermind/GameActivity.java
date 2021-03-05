@@ -30,6 +30,8 @@ import com.example.fruitmastermind.GameClasses.Fruit;
 import com.example.fruitmastermind.GameClasses.FruitArray;
 import com.example.fruitmastermind.GameClasses.ResultClues;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +49,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     //Instantiate an empty list for the recycler
 
     List<Drawable[]> paramForCycle = new ArrayList<Drawable[]>();
+    int posVH = 0;
     RecyclerView listTries;
     CustomAdapter myAdapter = new CustomAdapter(paramForCycle);
 
@@ -73,13 +76,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        //Instantiate a new list with the recycler
 
-        listTries = new RecyclerView(GameActivity.this);
+        listTries = findViewById(R.id.layout_listOfTries);
         listTries.setAdapter(myAdapter);
-        listTries.setLayoutManager(new LinearLayoutManager(GameActivity.this));
-
-        //Store the choice of the user when he clicks
+        RecyclerView.LayoutManager myManager = new LinearLayoutManager(GameActivity.this);
+        listTries.setLayoutManager(myManager);
 
         ImageButton b1 = (ImageButton) findViewById(R.id.Fruit1);
         ImageButton b2 = (ImageButton) findViewById(R.id.Fruit2);
@@ -146,7 +147,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         Button validate = (Button)findViewById(R.id.buttonValidate);
         validate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+
+            public void onClick(View view) {
+                Log.v("message","step 1");
                 Drawable[] arrayToAdd = new Drawable[4];
 
                 for (int i = 0; i < 4; i++){
@@ -160,10 +163,16 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 paramForCycle.add(arrayToAdd);
+   myAdapter.notifyDataSetChanged();
+                Log.v("message","step 6");
 
-                myAdapter.notifyDataSetChanged();
 
-                //If the count of tries is up to 0 the player can still play
+                //CustomAdapter.ViewHolder vh =  myAdapter.onCreateViewHolder(GameActivity.this.listTries, R.id.layout_listOfTries);
+                //myAdapter.onBindViewHolder(vh,posVH);
+                posVH+=1;
+
+                //myManager.addView(vh.getImgView());
+
 
                 if(count > 0) {
 
@@ -199,8 +208,22 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
                     loser("You're a loser","But that's ok. It's just a game, you know...");
                 }
+
+                resetChoiceButton();
+
             }
         });
+
+        //Reset the image when click on reset button
+
+        Button reset = (Button)findViewById(R.id.buttonReset);
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetChoiceButton();
+            }
+        });
+
 
         //Recylcer the revenge
     }
@@ -217,10 +240,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         public class ViewHolder extends RecyclerView.ViewHolder {
 
             private final ImageView[] imgView = new ImageView[4];
+            private final LinearLayout posFruit = new LinearLayout(GameActivity.this);
             ImageView imgView1;
             ImageView imgView2;
             ImageView imgView3;
             ImageView imgView4;
+            public TextView T1;
+            public TextView T2;
+            public TextView T3;
+            public TextView T4;
 
             public ViewHolder(View view) {
                 super(view);
@@ -235,6 +263,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 imgView3 = (ImageView) view.findViewById(R.id.imgRecyclerFruit3);
                 imgView4 = (ImageView) view.findViewById(R.id.imgRecyclerFruit4);
 
+                T1 = (TextView) view.findViewById(R.id.firstPositionTextView);
+                T2 = (TextView) view.findViewById(R.id.secondPositionTextView);
+                T3 = (TextView) view.findViewById(R.id.thirdPositionTextView);
+                T4 = (TextView) view.findViewById(R.id.fourthPositionTextView);
+
                 imgView[0] = imgView1;
                 imgView[1] = imgView2;
                 imgView[2] = imgView3;
@@ -243,6 +276,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
             public ImageView[] getImgView() {
                 return imgView;
+            }
+
+
+            public LinearLayout getPosFruit(){
+                return  posFruit;
             }
         }
 
@@ -273,6 +311,39 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
             // Get element from your dataset at this position and replace the
             // contents of the view with that element
+
+
+
+            TextView[] tView = new TextView[4];
+            tView[0] = viewHolder.T1;
+            tView[1] = viewHolder.T2;
+            tView[2] = viewHolder.T3;
+            tView[3] = viewHolder.T4;
+
+
+            ResultClues rC2 = new ResultClues();
+            Clue[] resultArray2 = rC2.checkUserAnswer(myCombo,userChoice);
+            //Log.v("test",resultArray2.toString());
+
+            for (int i = 0; i < resultArray2.length; i++){
+                Log.v("test","im inside");
+                Log.v("value", resultArray2[i].clueValue);
+                switch (resultArray2[i].clueValue)
+                {
+                    case "Perfect":
+                        tView[i].setText("V");
+                        Log.v("result","V");
+                        break;
+                    case "Good":
+                        tView[i].setText("O");
+                        Log.v("result","O");
+                        break;
+                    case "Wrong":
+                        tView[i].setText("X");
+                        Log.v("result","X");
+                        break;
+                }
+            }
 
             for (int i = 0; i < 4; i++){
                 Log.v("in adapter", "step 7");
@@ -398,7 +469,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     //Decount of 2 when the user show the clue
 
     public void showPeelable(MenuItem item) {
-        TableLayout peelableTable = findViewById(R.id.layout_clue1);
+        TableLayout peelableTable = findViewById(R.id.layout_clue2);
         peelableTable.setVisibility(View.VISIBLE);
         count -= 2;
     }
@@ -406,9 +477,22 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     //Decount of 3 when the user show the clue
 
     public void showSeeds(MenuItem item) {
-        TableLayout seedTable = findViewById(R.id.layout_clue2);
+        TableLayout seedTable = findViewById(R.id.layout_clue1);
         seedTable.setVisibility(View.VISIBLE);
         count -= 3;
+    }
+
+    //Set question mark on button images
+
+    public void resetChoiceButton(){
+        ImageButton btn1 = findViewById(R.id.Fruit1);
+        btn1.setImageResource(R.drawable.question_color);
+        ImageButton btn2 = findViewById(R.id.Fruit2);
+        btn2.setImageResource(R.drawable.question_color);
+        ImageButton btn3 = findViewById(R.id.Fruit3);
+        btn3.setImageResource(R.drawable.question_color);
+        ImageButton btn4 = findViewById(R.id.Fruit4);
+        btn4.setImageResource(R.drawable.question_color);
     }
 }
 
