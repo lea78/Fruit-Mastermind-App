@@ -1,14 +1,11 @@
 package com.example.fruitmastermind;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Dialog;
-import android.annotation.SuppressLint;
-
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -19,7 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -32,11 +29,6 @@ import com.example.fruitmastermind.GameClasses.Clue;
 import com.example.fruitmastermind.GameClasses.Fruit;
 import com.example.fruitmastermind.GameClasses.FruitArray;
 import com.example.fruitmastermind.GameClasses.ResultClues;
-import com.example.fruitmastermind.GameClasses.RecyclerAdapter;
-import com.example.fruitmastermind.GameClasses.UserArray;
-
-import java.io.BufferedReader;
-import java.util.Arrays;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener{
     TextView decountTries;
@@ -46,7 +38,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     //@SuppressLint("WrongViewCast")
     int imagesTries[];
+    ImageView[] paramForCycle;
     RecyclerView listTries;
+    CustomAdapter myAdapter = new CustomAdapter(paramForCycle);
+
     Fruit fruit1 = gBoard.getBaseFruitArray()[0];
     Fruit fruit2 = gBoard.getBaseFruitArray()[1];
     Fruit fruit3 = gBoard.getBaseFruitArray()[2];
@@ -65,6 +60,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        listTries = new RecyclerView(GameActivity.this);
+        listTries.setAdapter(myAdapter);
+        listTries.setLayoutManager(new LinearLayoutManager(GameActivity.this));
         ImageButton b1 = (ImageButton) findViewById(R.id.Fruit1);
         ImageButton b2 = (ImageButton) findViewById(R.id.Fruit2);
         ImageButton b3 = (ImageButton) findViewById(R.id.Fruit3);
@@ -118,17 +116,21 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
+
+
         Button validate = (Button)findViewById(R.id.buttonValidate);
         validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*for (int i = 0; i < 4; i++){
+                    int imageResource = getResources().getIdentifier(userChoice[i].getImg(), null, getPackageName());
+                    Drawable res = getResources().getDrawable(imageResource);
+                    paramForCycle[i].setImageDrawable(res);
+                }*/
+                //myAdapter.notifyDataSetChanged();
                 if(count > 0) {
                     ResultClues rC = new ResultClues();
-                    Log.v("message","step 1");
                     Clue[] resultArray = rC.checkUserAnswer(myCombo,userChoice);
-                    Log.v("message","step 2");
-                    Log.v("message","step 3");
-                    Log.v("checkcheck", resultArray[0].clueValue);
                     boolean checkwin = true;
                     for (int i=0; i < resultArray.length; i++){
                         Log.v("message","step 4");
@@ -141,6 +143,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         loser("You win !","Although it's not a very difficult game you know...");
                     }
                         else{
+                            //add recycler
+
+                            //ligne d'entrées user + cluemachin carré
                         decountTries = (TextView) findViewById(R.id.attemptsLeft);
                         count--;
                         decountTries.setText(String.valueOf(count));}
@@ -149,17 +154,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
-        // RECYCLER VIEW
-        listTries = findViewById(R.id.listOfTries);
-        RecyclerAdapter myAdapter = new RecyclerAdapter(this, arrayTestFruit);
-        String adaptExist ="non";
-        if(myAdapter != null){
-            adaptExist = "yes";
-        }
-        Log.v("show", adaptExist);
-        listTries.setAdapter(myAdapter);
-        listTries.setLayoutManager(new LinearLayoutManager(this));
-        myAdapter.notifyDataSetChanged();
+
+        //Recylcer the revenge
+
+
 
         /*Button showFruits = (Button)findViewById(R.id.Fruit1);
         showFruits.setOnClickListener(new View.OnClickListener() {
@@ -186,7 +184,89 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         });*/
     }
 
-    
+
+    public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
+
+        private ImageView[] localDataSet;
+
+        /**
+         * Provide a reference to the type of views that you are using
+         * (custom ViewHolder).
+         */
+        public class ViewHolder extends RecyclerView.ViewHolder {
+
+            private final ImageView[] imgView = new ImageView[4];
+            ImageView imgView1;
+            ImageView imgView2;
+            ImageView imgView3;
+            ImageView imgView4;
+
+            public ViewHolder(View view) {
+                super(view);
+                // Define click listener for the ViewHolder's View
+
+                imgView1 = (ImageView) view.findViewById(R.id.imgRecyclerFruit1);
+                imgView2 = (ImageView) view.findViewById(R.id.imgRecyclerFruit2);
+                imgView3 = (ImageView) view.findViewById(R.id.imgRecyclerFruit3);
+                imgView4 = (ImageView) view.findViewById(R.id.imgRecyclerFruit4);
+
+                imgView[0] = imgView1;
+                imgView[1] = imgView2;
+                imgView[2] = imgView3;
+                imgView[3] = imgView4;
+            }
+
+            public ImageView[] getImgView() {
+                return imgView;
+            }
+        }
+
+        /**
+         * Initialize the dataset of the Adapter.
+         *
+         * @param dataSet String[] containing the data to populate views to be used
+         * by RecyclerView.
+         */
+        public CustomAdapter(ImageView[] dataSet) {
+            localDataSet = dataSet;
+        }
+
+        // Create new views (invoked by the layout manager)
+        @Override
+        public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+            // Create a new view, which defines the UI of the list item
+            View view = LayoutInflater.from(viewGroup.getContext())
+                    .inflate(R.layout.item_list_of_tries, viewGroup, false);
+
+            return new ViewHolder(view);
+        }
+
+
+        // Replace the contents of a view (invoked by the layout manager)
+        @Override
+        public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+
+            // Get element from your dataset at this position and replace the
+            // contents of the view with that element
+
+            for (int i = 0; i < 4; i++){
+                int imageResource = getResources().getIdentifier(userChoice[i].getImg(), null, getPackageName());
+                Drawable res = getResources().getDrawable(imageResource);
+                viewHolder.getImgView()[i].setImageDrawable(res);
+            }
+
+        }
+
+        // Return the size of your dataset (invoked by the layout manager)
+        @Override
+        public int getItemCount() {
+            return localDataSet.length;
+        }
+    }
+
+
+
+
     public void goHome (View view){
 
         Intent intent = new Intent(this, MainActivity.class);
@@ -292,5 +372,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         count -= 3;
     }
 }
+
 
 

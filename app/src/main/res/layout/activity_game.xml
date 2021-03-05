@@ -43,17 +43,14 @@
     </LinearLayout>
 
     <!--RECYCLER VIEW-->
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/layout_listOfTries"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/layout_topMenu">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listOfTries"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
     <LinearLayout
