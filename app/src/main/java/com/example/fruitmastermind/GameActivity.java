@@ -268,6 +268,28 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             View view = LayoutInflater.from(viewGroup.getContext())
                     .inflate(R.layout.item_list_of_tries, viewGroup, false);
 
+            TextView T1 = viewGroup.findViewById(R.id.firstPositionTextView);
+            TextView T2 = viewGroup.findViewById(R.id.secondPositionTextView);
+            TextView T3 = viewGroup.findViewById(R.id.thirdPositionTextView);
+            TextView T4 = viewGroup.findViewById(R.id.fourthPositionTextView);
+
+            TextView[] tView = new TextView[]{T1,T2,T3,T4};
+
+            for (int i = 0; i <tView.length; i++){
+                switch (userChoice[i].getName())
+                {
+                    case "Perfect":
+                        tView[i].setText("V");
+                        break;
+                    case "Good":
+                        tView[i].setText("O");
+                        break;
+                    case "Wrong":
+                        tView[i].setText("X");
+                        break;
+                }
+            }
+
             return new ViewHolder(view);
         }
 
