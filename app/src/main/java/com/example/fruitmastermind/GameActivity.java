@@ -2,6 +2,8 @@ package com.example.fruitmastermind;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.annotation.SuppressLint;
@@ -27,6 +29,7 @@ import com.example.fruitmastermind.GameClasses.Clue;
 import com.example.fruitmastermind.GameClasses.Fruit;
 import com.example.fruitmastermind.GameClasses.FruitArray;
 import com.example.fruitmastermind.GameClasses.ResultClues;
+import com.example.fruitmastermind.GameClasses.RecyclerAdapter;
 import com.example.fruitmastermind.GameClasses.UserArray;
 
 import java.io.BufferedReader;
@@ -38,6 +41,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     FruitArray gBoard = new FruitArray();
 
+    //@SuppressLint("WrongViewCast")
+    int imagesTries[];
+    RecyclerView listTries;
+    Fruit fruit1 = gBoard.getBaseFruitArray()[0];
+    Fruit fruit2 = gBoard.getBaseFruitArray()[1];
+    Fruit fruit3 = gBoard.getBaseFruitArray()[2];
+    Fruit fruit4 =gBoard.getBaseFruitArray()[3];
+
+    Fruit arrayTestFruit [] = {fruit1, fruit2, fruit3, fruit4};
     Fruit[] userChoice = new Fruit[4];
 
     Fruit[] myCombo = gBoard.generateFruitBoard();
@@ -134,6 +146,17 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+        // RECYCLER VIEW
+        listTries = findViewById(R.id.listOfTries);
+        RecyclerAdapter myAdapter = new RecyclerAdapter(this, arrayTestFruit);
+        String adaptExist ="non";
+        if(myAdapter != null){
+            adaptExist = "yes";
+        }
+        Log.v("show", adaptExist);
+        listTries.setAdapter(myAdapter);
+        listTries.setLayoutManager(new LinearLayoutManager(this));
+        myAdapter.notifyDataSetChanged();
 
         /*Button showFruits = (Button)findViewById(R.id.Fruit1);
         showFruits.setOnClickListener(new View.OnClickListener() {
