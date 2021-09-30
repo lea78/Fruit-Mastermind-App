@@ -4,6 +4,12 @@ Android application of a Mastermind game, made on Android Studio (Java).
 Design with fruits.
 Team Work
 
+![Screenshot_1631806790](https://user-images.githubusercontent.com/73224206/135480559-840537c4-a2d6-4d00-b2a2-decfef03f5f1.png)
+![Screenshot_1631806797](https://user-images.githubusercontent.com/73224206/135480602-2807f80b-291e-476a-af6c-5783b5f0f77f.png)
+![Screenshot_1631806924](https://user-images.githubusercontent.com/73224206/135480672-7af978ba-aa20-4308-a8f6-4a93f2164811.png)
+![Screenshot_1631806931](https://user-images.githubusercontent.com/73224206/135480681-1268171d-8f7d-4e87-a5c9-3d1b53a9429c.png)
+
+ 
  # Features :
  
 MENU : Quit or launch the game
