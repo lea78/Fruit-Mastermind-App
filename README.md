@@ -1,8 +1,8 @@
 <h1>### Fruit-Mastermind-App ### </h1>
 
-Android application of a Mastermind game, made on Android Studio (Java). 
-Design with fruits.
-Team Work
+Android application of a Mastermind game, made on Android Studio (Java). <br/>
+Design with fruits. <br/>
+Team Work <br/>
 
 <section style="display: flex; justify-content: center; align-items: center;">
 
