@@ -10,14 +10,15 @@ Team Work
 
 <section/>
 
-
+<section >
  # Features :
  
-MENU : Quit or launch the game
-GAME : Guess the right combination of fruit in less than 10 tries.
-CLUES: Next to each combination is the clue, it indicates if the fruit exists, exists but is in the wrong place, doesn't exist.
-HELP : you can have two hints, each one reducing tries. 
+MENU : Quit or launch the game <br/>
+GAME : Guess the right combination of fruit in less than 10 tries. <br/>
+CLUES: Next to each combination is the clue, it indicates if the fruit exists, exists but is in the wrong place, doesn't exist. <br/>
+HELP : you can have two hints, each one reducing tries. <br/>
 
+ <section/>
 
 
 
