@@ -11,7 +11,7 @@ Team Work
 <section/>
 
 <section >
- # Features :
+ <h2># Features : </h2>
  
 MENU : Quit or launch the game <br/>
 GAME : Guess the right combination of fruit in less than 10 tries. <br/>
