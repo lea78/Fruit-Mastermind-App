@@ -1,4 +1,4 @@
-### Fruit-Mastermind-App ###
+<h1>### Fruit-Mastermind-App ### </h1>
 
 Android application of a Mastermind game, made on Android Studio (Java). 
 Design with fruits.
